@@ -1,0 +1,691 @@
+ERROR - 2023-07-06 03:45:51 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 D:\Kuliah\project-uas\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 D:\Kuliah\project-uas\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-07-06 03:53:25 --> mysqli_sql_exception: Invalid default value for 'created_at' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `s...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `s...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `s...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `s...')
+#4 D:\Kuliah\project-uas\app\Database\Migrations\2023-07-06-033055_Students.php(76): CodeIgniter\Database\Forge->createTable('students')
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(877): App\Database\Migrations\Students->up()
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 D:\Kuliah\project-uas\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-07-06 03:54:18 --> mysqli_sql_exception: Invalid default value for 'created_at' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `s...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `s...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `s...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `s...')
+#4 D:\Kuliah\project-uas\app\Database\Migrations\2023-07-06-033055_Students.php(76): CodeIgniter\Database\Forge->createTable('students')
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(877): App\Database\Migrations\Students->up()
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 D:\Kuliah\project-uas\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-07-06 03:55:09 --> mysqli_sql_exception: Invalid default value for 'created_at' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `s...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `s...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `s...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `s...')
+#4 D:\Kuliah\project-uas\app\Database\Migrations\2023-07-06-033055_Students.php(76): CodeIgniter\Database\Forge->createTable('students')
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(877): App\Database\Migrations\Students->up()
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 D:\Kuliah\project-uas\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+CRITICAL - 2023-07-06 05:03:21 --> Class "App\Controllers\SubjectModel" not found
+in APPPATH\Controllers\Study.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+CRITICAL - 2023-07-06 05:04:12 --> Class "App\Model\StudyModel" not found
+in APPPATH\Controllers\Study.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+CRITICAL - 2023-07-06 05:04:14 --> Class "App\Model\StudyModel" not found
+in APPPATH\Controllers\Study.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+CRITICAL - 2023-07-06 05:05:26 --> Class "App\Model\StudyModel" not found
+in APPPATH\Controllers\Study.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->index()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+CRITICAL - 2023-07-06 05:44:40 --> Undefined variable $subjects
+in APPPATH\Views\dashboard.php on line 30.
+ 1 APPPATH\Views\dashboard.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subjects', 'D:\\Kuliah\\project-uas\\app\\Views\\dashboard.php', 30)
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\Kuliah\\project-uas\\app\\Views\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('dashboard', [], true)
+ 5 APPPATH\Controllers\Study.php(12): view('dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->dashboard()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+CRITICAL - 2023-07-06 05:44:53 --> Call to undefined function user()
+in APPPATH\Views\layouts\components\topbar.php on line 13.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\View\View.php(452): CodeIgniter\View\View->render('layouts/components/topbar', null, true)
+ 4 APPPATH\Views\layouts\admin.php(31): CodeIgniter\View\View->include('layouts/components/topbar')
+ 5 SYSTEMPATH\View\View.php(224): include('D:\\Kuliah\\project-uas\\app\\Views\\layouts\\admin.php')
+ 6 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layouts/admin', [], true)
+ 8 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('dashboard', [], true)
+ 9 APPPATH\Controllers\Study.php(14): view('dashboard', [...])
+10 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->dashboard()
+11 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+12 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 05:45:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:45:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:45:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:46:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:46:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:46:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:46:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:46:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:47:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:47:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:47:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:55:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:55:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:57:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:57:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:57:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:57:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:58:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:58:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 05:59:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:00:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:00:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:01:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:01:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:01:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:02:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:02:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:02:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:02:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:02:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:02:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:02:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:03:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:03:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:03:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:04:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:05:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:05:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:05:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:05:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:06:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:06:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:06:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:06:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:07:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:07:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:07:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:07:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:07:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:07:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:21:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:21:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:21:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:21:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:22:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:22:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:22:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:23:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:23:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:23:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:24:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:24:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:25:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:25:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:26:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:26:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:26:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:26:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:26:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:26:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:27:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:31:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:34:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:34:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:34:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:34:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:35:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:36:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:36:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:37:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:37:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:37:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:37:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:37:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 06:38:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:11:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:13:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:13:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:14:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:14:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:17:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:17:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:17:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:18:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:19:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:19:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:21:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:21:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:22:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:22:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:31:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:31:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:38:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:46:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:47:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-06 07:47:55 --> Class "App\Controllers\SubjectModel" not found
+in APPPATH\Controllers\Study.php on line 48.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->downloadExcel()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+CRITICAL - 2023-07-06 07:51:33 --> Undefined array key "tahun_pelajaran"
+in APPPATH\Controllers\Study.php on line 77.
+ 1 APPPATH\Controllers\Study.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "tahun_pelajaran"', 'D:\\Kuliah\\project-uas\\app\\Controllers\\Study.php', 77)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->downloadExcel()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 07:52:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:52:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:52:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 07:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 08:12:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 08:13:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 08:13:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 08:14:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 08:14:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-06 08:14:23 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(133): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 08:14:23 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', \'2023-07-06 08:14:23\', \'2023-07-06 08:14:23\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', \'2023-07-06 08:14:23\', \'2023-07-06 08:14:23\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', \'2023-07-06 08:14:23\', \'2023-07-06 08:14:23\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(133): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 08:14:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-06 08:15:00 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(133): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 08:15:00 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Name\', \'Tempat Lahir\', \'Tanggal Lahir\', \'Alamat\', \'Telpon\', \'Email\', \'Jurusan\', \'Tahun Lulusan\', \'Kesibukan\', \'Instansi\', \'Riwayat Pendidikan\', \'2023-07-06 08:15:00\', \'2023-07-06 08:15:00\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Name\', \'Tempat Lahir\', \'Tanggal Lahir\', \'Alamat\', \'Telpon\', \'Email\', \'Jurusan\', \'Tahun Lulusan\', \'Kesibukan\', \'Instansi\', \'Riwayat Pendidikan\', \'2023-07-06 08:15:00\', \'2023-07-06 08:15:00\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Name\', \'Tempat Lahir\', \'Tanggal Lahir\', \'Alamat\', \'Telpon\', \'Email\', \'Jurusan\', \'Tahun Lulusan\', \'Kesibukan\', \'Instansi\', \'Riwayat Pendidikan\', \'2023-07-06 08:15:00\', \'2023-07-06 08:15:00\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(133): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+ERROR - 2023-07-06 08:18:57 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(133): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 08:18:57 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', \'2023-07-06 08:18:57\', \'2023-07-06 08:18:57\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', \'2023-07-06 08:18:57\', \'2023-07-06 08:18:57\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', \'2023-07-06 08:18:57\', \'2023-07-06 08:18:57\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(133): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 08:23:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 08:23:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-06 08:24:06 --> Class "App\Controllers\SubjectModel" not found
+in APPPATH\Controllers\Study.php on line 150.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+CRITICAL - 2023-07-06 08:24:21 --> Class "App\Controllers\SubjectModel" not found
+in APPPATH\Controllers\Study.php on line 150.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 08:24:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-06 08:24:41 --> Unclosed '{' on line 12
+in APPPATH\Controllers\Study.php on line 160.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\Kuliah\\project-uas\\app\\Controllers\\Study.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Study')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Study')
+ 4 SYSTEMPATH\CodeIgniter.php(890): class_exists('\\App\\Controllers\\Study', true)
+ 5 SYSTEMPATH\CodeIgniter.php(484): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 08:25:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-06 08:26:05 --> Class "App\Controllers\SubjectModel" not found
+in APPPATH\Controllers\Study.php on line 160.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+ERROR - 2023-07-06 08:26:25 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(161): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 08:26:25 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', \'2023-07-06 08:26:25\', \'2023-07-06 08:26:25\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', \'2023-07-06 08:26:25\', \'2023-07-06 08:26:25\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', \'2023-07-06 08:26:25\', \'2023-07-06 08:26:25\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(161): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+ERROR - 2023-07-06 08:28:27 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(137): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 08:28:27 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:28:27\', \'2023-07-06 08:28:27\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:28:27\', \'2023-07-06 08:28:27\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:28:27\', \'2023-07-06 08:28:27\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :instansi:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(137): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 08:46:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 08:46:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-06 08:46:49 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(137): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 08:46:49 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:46:49\', \'2023-07-06 08:46:49\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:46:49\', \'2023-07-06 08:46:49\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:46:49\', \'2023-07-06 08:46:49\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :instansi:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(137): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 08:46:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 08:46:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 08:48:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-06 08:48:44 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(139): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 08:48:44 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:48:44\', \'2023-07-06 08:48:44\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:48:44\', \'2023-07-06 08:48:44\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:48:44\', \'2023-07-06 08:48:44\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :instansi:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(139): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+ERROR - 2023-07-06 08:48:45 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(139): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 08:48:45 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:48:45\', \'2023-07-06 08:48:45\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:48:45\', \'2023-07-06 08:48:45\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:48:45\', \'2023-07-06 08:48:45\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :instansi:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(139): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 08:48:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-06 08:50:38 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(139): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 08:50:38 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:50:38\', \'2023-07-06 08:50:38\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:50:38\', \'2023-07-06 08:50:38\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 08:50:38\', \'2023-07-06 08:50:38\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :instansi:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(139): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 08:54:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 09:02:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-06 09:02:44 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(139): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 09:02:44 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 09:02:44\', \'2023-07-06 09:02:44\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 09:02:44\', \'2023-07-06 09:02:44\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 09:02:44\', \'2023-07-06 09:02:44\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :instansi:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(139): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 09:03:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 09:03:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 09:03:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-06 09:04:03 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(139): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 09:04:03 --> Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Ucup\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 09:04:03\', \'2023-07-06 09:04:03\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Ucup\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 09:04:03\', \'2023-07-06 09:04:03\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'Ucup\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 09:04:03\', \'2023-07-06 09:04:03\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :instansi:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(139): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 10:14:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:14:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-06 10:15:29 --> mysqli_sql_exception: Duplicate entry '687654' for key 'PRIMARY' in D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `st...', 0)
+#1 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `st...')
+#2 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `st...')
+#3 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `st...', Array, false)
+#4 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Kuliah\project-uas\app\Controllers\Study.php(139): CodeIgniter\Model->insert(Array)
+#8 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+#9 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+#10 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Kuliah\project-uas\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 D:\Kuliah\project-uas\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\proje...')
+#13 {main}
+CRITICAL - 2023-07-06 10:15:29 --> Duplicate entry '687654' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `students` (`nis`, `name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'687654\', \'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 10:15:29\', \'2023-07-06 10:15:29\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `students` (`nis`, `name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'687654\', \'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 10:15:29\', \'2023-07-06 10:15:29\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `students` (`nis`, `name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (\'687654\', \'Akbar\', \'Jakarta\', \'2023-07-06\', \'Bekasi\', \'812546889\', \'akbar@gmail.com\', \'Teknik Komputer Jaringan\', \'2020\', \'Kerja\', \'PT. Telkom Akses\', \'SMK\', NULL, \'2023-07-06 10:15:29\', \'2023-07-06 10:15:29\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `students` (`nis`, `name`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telpon`, `email`, `jurusan`, `tahun_lulus`, `kesibukan`, `instansi`, `riwayat_pendidikan`, `prodi`, `created_at`, `updated_at`) VALUES (:nis:, :name:, :tempat_lahir:, :tanggal_lahir:, :alamat:, :telpon:, :email:, :jurusan:, :tahun_lulus:, :kesibukan:, :instansi:, :riwayat_pendidikan:, :prodi:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Study.php(139): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Study->importExcel()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Study))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Kuliah\\project-uas\\public\\index.php')
+INFO - 2023-07-06 10:15:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:15:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:15:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:16:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:16:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:16:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:18:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:22:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:22:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:22:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:24:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-06 10:24:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
