@@ -10,9 +10,7 @@
     <title>Codeigniter 4 - Dashboard</title>
     <!-- Custom fonts for this template-->
     <link href="<?= base_url() ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/css/sb-admin-2.min.css') ?>" rel="stylesheet">
 
@@ -55,8 +53,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -74,20 +71,30 @@
         </div>
     </div>
     <?php
+    $labels = [];
+    $aktifitas = [];
+    foreach ($subjects as $row) {
+        $kategori = $row['tahun_lulus'];
 
-
-  $labels = [];
-  foreach ($subjects as $row) {
-    $kategori = $row['tahun_lulus'];
-
-    // Tambahkan jumlah data pada kategori yang sesuai
-    if (isset($labels[$kategori])) {
-      $labels[$kategori]++;
-    } else {
-      $labels[$kategori] = 1;
+        // Tambahkan jumlah data pada kategori yang sesuai
+        if (isset($labels[$kategori])) {
+            $labels[$kategori]++;
+        } else {
+            $labels[$kategori] = 1;
+        }
     }
-  }
-  ?>
+
+    foreach ($subjects as $row) {
+        $kategori = $row['kesibukan'];
+
+        // Tambahkan jumlah data pada kategori yang sesuai
+        if (isset($aktifitas[$kategori])) {
+            $aktifitas[$kategori]++;
+        } else {
+            $aktifitas[$kategori] = 1;
+        }
+    }
+    ?>
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('assets/vendor/jquery/jquery.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
@@ -99,39 +106,110 @@
     <script src="<?= base_url('assets/vendor/chart.js/Chart.min.js'); ?>"></script>
 
     <script>
-    // Chart Pir Data Example
-    var ctx = document.getElementById("myPieChart");
-    var myPieChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: <?= json_encode(array_keys($labels)) ?>,
-            datasets: [{
-                label: 'Data',
-                data: <?= json_encode(array_values($labels)) ?>,
-                backgroundColor: ['#1ABC9C', '#3498DB', '#9B59B6', '#E74C3C', '#F39C12', '#2ECC71',
-                    '#95A5A6', '#E67E22', '#16A085', '#8E44AD'
-                ],
-            }],
-        },
-        options: {
-            maintainAspectRatio: false,
-            tooltips: {
-                backgroundColor: "rgb(255,255,255)",
-                bodyFontColor: "#858796",
-                borderColor: '#dddfeb',
-                borderWidth: 1,
-                xPadding: 5,
-                yPadding: 5,
-                displayColors: false,
-                caretPadding: 10,
+        var data = <?= json_encode(array_values($aktifitas)) ?>;
+        var labels = <?= json_encode(array_keys($aktifitas)) ?>;
+        var backgroundColors = ['#1ABC9C', '#3498DB', '#9B59B6', '#E74C3C', '#F39C12', '#2ECC71',
+            '#95A5A6', '#E67E22', '#16A085', '#8E44AD'
+        ];
+
+        // Filter data dan labels untuk menghapus data kosong
+        var filteredData = [];
+        var filteredLabels = [];
+        var filteredBackgroundColors = [];
+
+        for (var i = 0; i < data.length; i++) {
+            if (labels[i] !== '') {
+                filteredData.push(data[i]);
+                filteredLabels.push(labels[i]);
+                filteredBackgroundColors.push(backgroundColors[i]);
+            }
+        }
+        // Chart Pir Data Example
+        var ctx = document.getElementById("myPieChart").getContext('2d');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: filteredLabels,
+                datasets: [{
+                    label: 'Data',
+                    data: filteredData,
+                    backgroundColor: filteredBackgroundColors,
+                }],
             },
-            legend: {
-                display: false
-            },
-            cutoutPercentage: 50,
-        },
-    });
+            options: {
+                responsive: true,
+                tooltips: {
+                    enabled: true,
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.labels[tooltipItem.index];
+                            var value = data.datasets[0].data[tooltipItem.index];
+                            return label + ': ' + value + '%';
+                        }
+                    }
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                },
+                cutoutPercentage: 50,
+            }
+        });
     </script>
+
+
+    <script>
+        var ctx = document.getElementById('myBarChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: <?= json_encode(array_keys($labels)) ?>,
+                datasets: [{
+                    label: 'Data',
+                    data: <?= json_encode(array_values($labels)) ?>,
+                    backgroundColor: ['#1ABC9C', '#3498DB', '#9B59B6', '#E74C3C', '#F39C12', '#2ECC71',
+                        '#95A5A6', '#E67E22', '#16A085', '#8E44AD'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    }
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.labels[tooltipItem.index];
+                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            return label + ': ' + value;
+                        }
+                    }
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                }
+            }
+        });
+    </script>
+
     <?= $this->renderSection('scripts') ?>
 </body>
 
