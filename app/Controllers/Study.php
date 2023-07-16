@@ -14,7 +14,6 @@ class Study extends BaseController
     protected $study;
 
     function __construct()
-
     {
         $this->study = new StudyModel();
     }
@@ -26,21 +25,22 @@ class Study extends BaseController
         $data['bekerja'] = $this->study->getCountByCategory('bekerja');
         $data['wirausaha'] = $this->study->getCountByCategory('wirausaha');
         $data['kuliah'] = $this->study->getCountByCategory('kuliah');
-
+        $data['username'] = session()->get('user');
         return view('dashboard', $data);
     }
     public function data_alumni()
     {
         $data['subjects'] = $this->study->findAll();
+        $data['username'] = session()->get('user');
         return view('data_alumni', $data);
     }
 
-    public function index()
-    {
-
-        $data['subjects'] = $this->study->findAll();
-        return view('dashboard', $data);
-    }
+    // public function index()
+    // {
+    //     $data['username'] = session()->get('username');
+    //     $data['subjects'] = $this->study->findAll();
+    //     return view('dashboard', $data);
+    // }
 
     public function save()
     {
@@ -59,11 +59,8 @@ class Study extends BaseController
             'riwayat_pendidikan' => $this->request->getPost('riwayat_pendidikan'),
             'prodi' => $this->request->getPost('prodi')
         ]);
-        return redirect()->to('/study/data_alumni')->with('success', 'Data added successfully');
+        return redirect()->to('/study/data_alumni')->with('success', 'Data Added Successfully');
     }
-
-
-
 
     public function downloadExcel()
     {
@@ -135,6 +132,7 @@ class Study extends BaseController
                 $startRow = 2;
                 $endRow = count($rows);
 
+                $model = new StudyModel();
 
                 for ($rowIndex = $startRow; $rowIndex <= $endRow; $rowIndex++) {
                     $row = $rows[$rowIndex - 1];
@@ -155,11 +153,11 @@ class Study extends BaseController
                         'prodi'                 => $row[12],
                     ];
 
-                    $model = new StudyModel();
-                    $model->insert($data);
+                    $model->upsert($data, 'nis'); // Ganti 'nis' dengan kolom yang merupakan primary key
+
                 }
 
-                return redirect()->to('/study/data_alumni')->with('success', 'Data imported successfully');
+                return redirect()->to('/study/data_alumni')->with('success', 'Data Imported Successfully');
             }
         }
         return redirect()->back()->with('error', 'Invalid file or format');
@@ -183,11 +181,30 @@ class Study extends BaseController
         echo view('visimisi');
         echo view('template/footer');
     }
+
     function login()
     {
         echo view('template/headerlogin');
         echo view('loginpage');
         echo view('template/footer');
+    }
+
+    public function auth()
+    {
+        $username = $this->request->getPost('user');
+        $password = $this->request->getPost('password');
+        $user = $this->study->where('user', $username)->first();
+        if (empty($user)) {
+            session()->setFlashdata('message', 'Username atau Password Salah');
+            return redirect()->to('/study/login');
+        }
+        if ($user['password'] != $password) {
+            session()->setFlashdata('message', 'Username atau Password Salah');
+            return redirect()->to('/study/login');
+        }
+        session()->set('name', $username);
+
+        return redirect()->to('/study/dashboard');
     }
 
     public function edit($id)
@@ -207,7 +224,14 @@ class Study extends BaseController
             'prodi' => $this->request->getPost('prodi'),
         ]);
 
-        return redirect('/study')->with('success', 'Data Updated Successfully');
+        return redirect()->to('/study/data_alumni')->with('success', 'Data Updated Successfully');
+    }
+
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/study/home');
     }
 
     public function delete($id)

@@ -65,6 +65,16 @@ class Students extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
+            'user' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'password' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
                 'null' => true,
@@ -74,7 +84,6 @@ class Students extends Migration
                 'type' => 'TIMESTAMP',
                 'null' => true,
                 'default' => null,
-
             ],
         ]);
         $this->forge->addPrimaryKey('nis');

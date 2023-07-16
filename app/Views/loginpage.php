@@ -20,8 +20,8 @@
                         <h2 class="text-center mb-4">Tracer Study</h2>
                         <form action="#" method="POST">
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
+                                <label for="nis" class="form-label">Nis</label>
+                                <input type="text" class="form-control" id="nis" name="nis" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
@@ -29,7 +29,7 @@
                             </div>
                             <div class="d-grid">
                                 <!-- <button type="submit" class="btn btn-primary mb-2">Login</button> -->
-                                <a type="submit" class="btn btn-primary mb-2" href="<?php echo base_url("study/dashboard"); ?>">Login</a>
+                                <a type="submit" class="btn btn-primary mb-2" href="<?php echo base_url("study/auth"); ?>">Login</a>
                                 <a type="submit" class="btn btn-secondary" href="<?php echo base_url("study/home"); ?>">Back</a>
                             </div>
                         </form>
