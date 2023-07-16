@@ -15,6 +15,13 @@ class Study extends BaseController
     {
         $model = new StudyModel();
         $data['subjects'] = $model->findAll();
+        $data['studentCount'] = $model->getCount();
+        $data['bekerja'] = $model->getCountByCategory('bekerja');
+        $data['wirausaha'] = $model->getCountByCategory('wirausaha');
+        $data['kuliah'] = $model->getCountByCategory('kuliah');
+
+
+
         return view('dashboard', $data);
     }
     public function data_alumni()
@@ -29,6 +36,8 @@ class Study extends BaseController
         $model = new StudyModel();
         $data['subjects'] = $model->findAll();
 
+
+
         return view('dashboard', $data);
     }
 
@@ -36,6 +45,7 @@ class Study extends BaseController
     {
         return view('add');
     }
+
 
     // public function save()
     // {
@@ -150,5 +160,30 @@ class Study extends BaseController
             }
         }
         return redirect()->back()->with('error', 'Invalid file or format');
+    }
+
+    function home()
+    {
+        echo view('template/header');
+        echo view('homepage');
+        echo view('template/footer');
+    }
+    function informasi()
+    {
+        echo view('template/header');
+        echo view('informasi');
+        echo view('template/footer');
+    }
+    function visi_misi()
+    {
+        echo view('template/header');
+        echo view('visimisi');
+        echo view('template/footer');
+    }
+    function login()
+    {
+        echo view('template/headerlogin');
+        echo view('loginpage');
+        echo view('template/footer');
     }
 }
