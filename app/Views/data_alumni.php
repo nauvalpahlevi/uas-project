@@ -48,12 +48,82 @@
                         <td><?= $subject['prodi']; ?></td>
                         <td>
                             <div class="d-flex">
-                                <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#editModal-<?= $subject['nis'] ?>">Edit</button>
+                                <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#editModal<?= $subject['nis']; ?>">Edit</button>
                                 <a href="<?= base_url('study/delete/' . $subject['nis']) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this subject?')">Delete</a>
                             </div>
                         </td>
 
                     </tr>
+                    <!-- Edit Modal -->
+                    <div class="modal fade" id="editModal<?= $subject['nis'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form action="<?= base_url('study/edit/' . $subject['nis']) ?>" method="post">
+                                    <?= csrf_field(); ?>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="name">Nama</label>
+                                            <input type="text" name="name" class="form-control" id="name" value="<?= $subject['name']; ?>" placeholder="Nama" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tempat_lahir">Tempat Lahir</label>
+                                            <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir" value="<?= $subject['tempat_lahir']; ?>" placeholder="Tempat Lahir" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tanggal_lahir">Tanggal Lahir</label>
+                                            <input type="text" name="tanggal_lahir" class="form-control" id="tanggal_lahir" value="<?= $subject['tanggal_lahir']; ?>" placeholder="Tanggal Lahir" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="alamat">Alamat</label>
+                                            <input type="text" name="alamat" class="form-control" id="alamat" value="<?= $subject['alamat']; ?>" placeholder="Alamat" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="telpon">Telpon</label>
+                                            <input type="text" name="telpon" class="form-control" id="telpon" value="<?= $subject['telpon']; ?>" placeholder="Telpon" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" class="form-control" id="email" value="<?= $subject['email']; ?>" placeholder="Email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="jurusan">Jurusan</label>
+                                            <input type="text" name="jurusan" class="form-control" id="jurusan" value="<?= $subject['jurusan']; ?>" placeholder="Jurusan" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tahun_lulus">Tahun Lulus</label>
+                                            <input type="text" name="tahun_lulus" class="form-control" id="tahun_lulus" value="<?= $subject['tahun_lulus']; ?>" placeholder="Tahun lulus" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="kesibukan">Kesibukan</label>
+                                            <input type="text" name="kesibukan" class="form-control" id="kesibukan" value="<?= $subject['kesibukan']; ?>" placeholder="Kesibukan" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="instansi">Instansi</label>
+                                            <input type="text" name="instansi" class="form-control" id="instansi" value="<?= $subject['instansi']; ?>" placeholder="Instansi" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="riwayat_pendidikan">Riwayat Pendidikan</label>
+                                            <input type="text" name="riwayat_pendidikan" class="form-control" id="riwayat_pendidikan" value="<?= $subject['riwayat_pendidikan']; ?>" placeholder="Riwayat Pendidikan" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="prodi">Program Studi</label>
+                                            <input type="text" name="prodi" class="form-control" id="prodi" value="<?= $subject['prodi']; ?>" placeholder="Program Studi" required>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 <?php endforeach; ?>
             </tbody>
         </table>
@@ -92,113 +162,78 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Students</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add Data</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <?= csrf_field(); ?>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="nis">NIS</label>
-                        <input type="text" name="nis" class="form-control" id="nis" placeholder="Nomor Induk Siswa" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="name">Nama</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Nama" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="tempatlahir">Tempat Lahir</label>
-                        <input type="text" name="tempatlahir" class="form-control" id="tempatlahir" placeholder="Tempat Lahir" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="alamat">Alamat</label>
-                        <input type="text" name="alamat" class="form-control" id="alamat" placeholder="Alamat" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="telpon">Telpon</label>
-                        <input type="text" name="telpon" class="form-control" id="telpon" placeholder="Telpon" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="jurusan">Jurusan</label>
-                        <input type="text" name="jurusan" class="form-control" id="jurusan" placeholder="Jurusan" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="tahunlulus">Tahun Lulus</label>
-                        <input type="text" name="tahunlulus" class="form-control" id="tahunlulus" placeholder="Tahun Lulusan" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="jurusan">Jurusan</label>
-                        <input type="text" name="jurusan" class="form-control" id="jurusan" placeholder="Jurusan" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="kesibukan">Kesibukan</label>
-                        <input type="text" name="kesibukan" class="form-control" id="kesibukan" placeholder="Kesibukan" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="instansi">Instansi</label>
-                        <input type="text" name="instansi" class="form-control" id="instansi" placeholder="Instansi" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="riwayatpen">Riwayat Pendidikan</label>
-                        <input type="text" name="riwayatpen" class="form-control" id="riwayatpen" placeholder="Riwayat Pendidikan" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="prodi">Program Studi</label>
-                        <input type="text" name="prodi" class="form-control" id="prodi" placeholder="Program Studi" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Edit Modal -->
-
-    <div class="modal fade" id="editModal-<?= $subject['nis'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="<?= base_url('study/edit/' . $subject['nis']) ?>" method="post">
-                    <?= csrf_field(); ?>
-                    <div class="modal-body">
+                    <form action="/study/save" method="post">
+                        <?= csrf_field() ?>
+                        <div class="form-group">
+                            <label for="nis">NIS</label>
+                            <input type="text" name="nis" class="form-control" id="nis" required>
+                        </div>
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" name="name" class="form-control" id="name" value="<?= $subject['name'] ?>" placeholder="Contact Name" required>
+                            <input type="text" name="name" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tempat_lahir">Tempat Lahir</label>
+                            <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggal_lahir">Tanggal Lahir</label>
+                            <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <input type="text" name="alamat" class="form-control" id="alamat" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telpon">Telpon</label>
+                            <input type="text" name="telpon" class="form-control" id="telpon" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" id="email" value="<?= $subject['email'] ?>" placeholder="Contact Email" required>
+                            <input type="email" name="email" class="form-control" id="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="text" name="phone" class="form-control" id="phone" value="<?= $subject['telpon'] ?>" placeholder="Contact Number" required>
+                            <label for="jurusan">Jurusan</label>
+                            <input type="text" name="jurusan" class="form-control" id="jurusan" required>
                         </div>
                         <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" name="address" class="form-control" id="address" value="<?= $subject['alamat'] ?>" placeholder="Contact Address" required>
+                            <label for="tahun_lulus">Tahun Lulus</label>
+                            <input type="text" name="tahun_lulus" class="form-control" id="tahun_lulus" required>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <label for="kesibukan">Kesibukan</label>
+                            <input type="text" name="kesibukan" class="form-control" id="kesibukan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="instansi">Instansi</label>
+                            <input type="text" name="instansi" class="form-control" id="instansi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="riwayat_pendidikan">Riwayat Pendidikan</label>
+                            <input type="text" name="riwayat_pendidikan" class="form-control" id="riwayat_pendidikan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prodi">Program Studi</label>
+                            <input type="text" name="prodi" class="form-control" id="prodi" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Add Data</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+
+
+
     <?= $this->endSection() ?>
     <?php $this->section('scripts') ?>
     <!-- Page level plugins -->

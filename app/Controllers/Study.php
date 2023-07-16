@@ -37,29 +37,33 @@ class Study extends BaseController
 
     public function index()
     {
+
         $data['subjects'] = $this->study->findAll();
         return view('dashboard', $data);
     }
 
-    public function add()
+    public function save()
     {
-        return view('add');
+        $this->study->insert([
+            'nis' => $this->request->getPost('nis'),
+            'name' => $this->request->getPost('name'),
+            'tempat_lahir' => $this->request->getPost('tempat_lahir'),
+            'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
+            'alamat' => $this->request->getPost('alamat'),
+            'telpon' => $this->request->getPost('telpon'),
+            'email' => $this->request->getPost('email'),
+            'jurusan' => $this->request->getPost('jurusan'),
+            'tahun_lulus' => $this->request->getPost('tahun_lulus'),
+            'kesibukan' => $this->request->getPost('kesibukan'),
+            'instansi' => $this->request->getPost('instansi'),
+            'riwayat_pendidikan' => $this->request->getPost('riwayat_pendidikan'),
+            'prodi' => $this->request->getPost('prodi')
+        ]);
+        return redirect()->to('/study/data_alumni')->with('success', 'Data added successfully');
     }
 
 
-    // public function save()
-    // {
-    //     $model = new SubjectModel();
 
-    //     $data = [
-    //         'name' => $this->request->getPost('name'),
-    //         'hours_studied' => $this->request->getPost('hours_studied'),
-    //     ];
-
-    //     $model->insert($data);
-
-    //     return redirect()->to('/subjects');
-    // }
 
     public function downloadExcel()
     {
@@ -196,18 +200,19 @@ class Study extends BaseController
             'telpon' => $this->request->getPost('telpon'),
             'email' => $this->request->getPost('email'),
             'jurusan' => $this->request->getPost('jurusan'),
+            'tahun_lulus' => $this->request->getPost('tahun_lulus'),
+            'kesibukan' => $this->request->getPost('kesibukan'),
             'instansi' => $this->request->getPost('instansi'),
             'riwayat_pendidikan' => $this->request->getPost('riwayat_pendidikan'),
             'prodi' => $this->request->getPost('prodi'),
         ]);
 
-        return redirect('study/data_alumni')->with('success', 'Data Updated Successfully');
+        return redirect('/study')->with('success', 'Data Updated Successfully');
     }
 
     public function delete($id)
     {
-        $studyModel = new StudyModel();
-        $studyModel->delete($id);
+        $this->study->delete($id);
         return redirect()->to('/study/data_alumni');
     }
 }

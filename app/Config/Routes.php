@@ -30,8 +30,11 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Study::home');
+// $routes->get('study', 'Study::data_alumni');
 $routes->get('study/download-excel', 'Study::downloadExcel');
 $routes->post('study/import-excel', 'Study::importExcel');
+$routes->get('study/edit/(:segment)', 'Study::edit/$1');
+$routes->post('study/save', 'Study::save');
 
 /*
  * --------------------------------------------------------------------
