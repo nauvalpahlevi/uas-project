@@ -2565,6 +2565,7 @@ return array(
     'SebastianBergmann\\Type\\VoidType' => $vendorDir . '/sebastian/type/src/type/VoidType.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'Stringable' => $vendorDir . '/myclabs/php-enum/stubs/Stringable.php',
+    'Symfony\\Polyfill\\Mbstring\\Mbstring' => $vendorDir . '/symfony/polyfill-mbstring/Mbstring.php',
     'Tests\\Support\\Database\\Seeds\\ExampleSeeder' => $baseDir . '/tests/_support/Database/Seeds/ExampleSeeder.php',
     'Tests\\Support\\Libraries\\ConfigReader' => $baseDir . '/tests/_support/Libraries/ConfigReader.php',
     'Tests\\Support\\Models\\ExampleModel' => $baseDir . '/tests/_support/Models/ExampleModel.php',

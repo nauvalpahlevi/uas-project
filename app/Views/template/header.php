@@ -16,7 +16,7 @@
 
     <?= $this->renderSection('styles') ?>
     <style>
-        @keyframes gradientAnimation {
+        /* @keyframes gradientAnimation {
             0% {
                 background-position: 0% 50%;
             }
@@ -34,7 +34,30 @@
             background: linear-gradient(-45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
             background-size: 400% 400%;
             animation: gradientAnimation 10s ease infinite;
+        } */
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
+
+        .gradient-animation {
+            background: radial-gradient(circle at 50% -20.71%, #cbe7e1 0, #cae7e3 6.25%, #c9e7e6 12.5%, #c9e7e8 18.75%, #c9e7eb 25%, #c9e7ed 31.25%, #cae6ef 37.5%, #cbe6f1 43.75%, #cde5f2 50%, #cfe4f3 56.25%, #d1e4f4 62.5%, #d4e3f5 68.75%, #d7e2f5 75%, #dae1f5 81.25%, #dde0f4 87.5%, #e0e0f4 93.75%, #e3dff2 100%);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            color: #000000;
+        }
+
+
 
         body {
             font-family: "Arial";
@@ -51,7 +74,7 @@
 
 <body class="gradient-animation">
     <div class="fluid-container">
-        <nav class="navbar navbar-expand-lg navbar-dark" id="gradient2">
+        <nav class="navbar navbar-expand-lg navbar-light" id="gradient2">
             <a class="navbar-brand" href="#">Tracer Study </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -92,6 +115,6 @@
     </div>
     <div>
         <center>
-            <h3 class="text-light">SMK WIDYA NUSANTARA</h3>
+            <h3>SMK WIDYA NUSANTARA</h3>
         </center>
     </div>

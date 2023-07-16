@@ -144,7 +144,9 @@
                         label: function(tooltipItem, data) {
                             var label = data.labels[tooltipItem.index];
                             var value = data.datasets[0].data[tooltipItem.index];
-                            return label + ': ' + value + ' Orang';
+                            var total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+                            var percentage = ((value / total) * 100).toFixed(2) + '%';
+                            return label + ': ' + percentage;
                         }
                     }
                 },
@@ -167,45 +169,72 @@
                 datasets: [{
                     label: 'Data',
                     data: <?= json_encode(array_values($labels)) ?>,
-                    backgroundColor: ['#1ABC9C', '#3498DB', '#9B59B6', '#E74C3C', '#F39C12', '#2ECC71',
-                        '#95A5A6', '#E67E22', '#16A085', '#8E44AD'
+                    backgroundColor: [
+                        'rgba(26, 188, 156, 0.7)',
+                        'rgba(52, 152, 219, 0.7)',
+                        'rgba(155, 89, 182, 0.7)',
+                        'rgba(231, 76, 60, 0.7)',
+                        'rgba(243, 156, 18, 0.7)',
+                        'rgba(46, 204, 113, 0.7)',
+                        'rgba(149, 165, 166, 0.7)',
+                        'rgba(230, 126, 34, 0.7)',
+                        'rgba(22, 160, 133, 0.7)',
+                        'rgba(142, 68, 173, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(26, 188, 156, 0.7)',
+                        'rgba(52, 152, 219, 0.7)',
+                        'rgba(155, 89, 182, 0.7)',
+                        'rgba(231, 76, 60, 0.7)',
+                        'rgba(243, 156, 18, 0.7)',
+                        'rgba(46, 204, 113, 0.7)',
+                        'rgba(149, 165, 166, 0.7)',
+                        'rgba(230, 126, 34, 0.7)',
+                        'rgba(22, 160, 133, 0.7)',
+                        'rgba(142, 68, 173, 0.7)'
                     ],
                     borderWidth: 1
                 }]
             },
             options: {
                 responsive: true,
+                plugins: {
+                    tooltip: {
+                        enabled: true,
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                var label = 'Tahun ' + context.label;
+                                var value = context.raw;
+                                return label + ': ' + value + ' Orang';
+                            }
+                        }
+                    }
+                },
                 scales: {
                     x: {
-                        grid: {
-                            display: false
-                        }
-                    },
-                    y: {
                         grid: {
                             display: false
                         },
                         ticks: {
                             display: false
                         }
-                    }
-                },
-                tooltips: {
-                    enabled: true,
-                    mode: 'index',
-                    intersect: false,
-                    callbacks: {
-                        label: function(tooltipItem, data) {
-                            var label = data.labels[tooltipItem.index];
-                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                            return label + ': ' + value;
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            display: false
                         }
                     }
                 },
                 legend: {
-                    display: true,
-                    position: 'bottom',
-                }
+                    display: false
+                },
+                cornerRadius: 10, // Mengatur radius sudut batang
+                indexAxis: 'y', // Mengatur orientasi sumbu
+                barPercentage: 0.6, // Mengatur lebar batang relatif terhadap lebar sumbu
+                categoryPercentage: 0.8 // Mengatur lebar grup batang relatif terhadap lebar sumbu
             }
         });
     </script>

@@ -11,33 +11,33 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 class Study extends BaseController
 {
 
+    protected $study;
+
+    function __construct()
+
+    {
+        $this->study = new StudyModel();
+    }
+
     public function dashboard()
     {
-        $model = new StudyModel();
-        $data['subjects'] = $model->findAll();
-        $data['studentCount'] = $model->getCount();
-        $data['bekerja'] = $model->getCountByCategory('bekerja');
-        $data['wirausaha'] = $model->getCountByCategory('wirausaha');
-        $data['kuliah'] = $model->getCountByCategory('kuliah');
-
-
+        $data['subjects'] = $this->study->findAll();
+        $data['studentCount'] = $this->study->getCount();
+        $data['bekerja'] = $this->study->getCountByCategory('bekerja');
+        $data['wirausaha'] = $this->study->getCountByCategory('wirausaha');
+        $data['kuliah'] = $this->study->getCountByCategory('kuliah');
 
         return view('dashboard', $data);
     }
     public function data_alumni()
     {
-        $model = new StudyModel();
-        $data['subjects'] = $model->findAll();
+        $data['subjects'] = $this->study->findAll();
         return view('data_alumni', $data);
     }
 
     public function index()
     {
-        $model = new StudyModel();
-        $data['subjects'] = $model->findAll();
-
-
-
+        $data['subjects'] = $this->study->findAll();
         return view('dashboard', $data);
     }
 
@@ -63,8 +63,7 @@ class Study extends BaseController
 
     public function downloadExcel()
     {
-        $model = new StudyModel();
-        $subjects = $model->findAll();
+        $subjects = $this->study->findAll();
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -185,5 +184,30 @@ class Study extends BaseController
         echo view('template/headerlogin');
         echo view('loginpage');
         echo view('template/footer');
+    }
+
+    public function edit($id)
+    {
+        $this->study->update($id, [
+            'name' => $this->request->getPost('name'),
+            'tempat_lahir' => $this->request->getPost('tempat_lahir'),
+            'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
+            'alamat' => $this->request->getPost('alamat'),
+            'telpon' => $this->request->getPost('telpon'),
+            'email' => $this->request->getPost('email'),
+            'jurusan' => $this->request->getPost('jurusan'),
+            'instansi' => $this->request->getPost('instansi'),
+            'riwayat_pendidikan' => $this->request->getPost('riwayat_pendidikan'),
+            'prodi' => $this->request->getPost('prodi'),
+        ]);
+
+        return redirect('study/data_alumni')->with('success', 'Data Updated Successfully');
+    }
+
+    public function delete($id)
+    {
+        $studyModel = new StudyModel();
+        $studyModel->delete($id);
+        return redirect()->to('/study/data_alumni');
     }
 }
