@@ -81,6 +81,7 @@ class Study extends BaseController
         $sheet->setCellValue('K1', 'Instansi');
         $sheet->setCellValue('L1', 'Riwayat Pendidikan');
         $sheet->setCellValue('M1', 'Program Studi');
+        $sheet->setCellValue('N1', 'Password');
 
         $row = 2;
         foreach ($subjects as $subject) {
@@ -97,6 +98,7 @@ class Study extends BaseController
             $sheet->setCellValue('K' . $row, $subject['instansi']);
             $sheet->setCellValue('L' . $row, $subject['riwayat_pendidikan']);
             $sheet->setCellValue('M' . $row, $subject['prodi']);
+            $sheet->setCellValue('M' . $row, $subject['password']);
             $row++;
         }
 
@@ -191,20 +193,25 @@ class Study extends BaseController
 
     public function auth()
     {
-        $username = $this->request->getPost('user');
+        $nis = $this->request->getPost('nis');
         $password = $this->request->getPost('password');
-        $user = $this->study->where('user', $username)->first();
-        if (empty($user)) {
-            session()->setFlashdata('message', 'Username atau Password Salah');
-            return redirect()->to('/study/login');
-        }
-        if ($user['password'] != $password) {
-            session()->setFlashdata('message', 'Username atau Password Salah');
-            return redirect()->to('/study/login');
-        }
-        session()->set('name', $username);
 
-        return redirect()->to('/study/dashboard');
+        $user = $this->study->where('nis', $nis)->first();
+
+        if (!$user || !password_verify($password, $user['pass'])) {
+            session()->setFlashdata('error', 'Silahkan cek kembali Nis dan Password Anda');
+            return redirect()->back()->withInput();
+        }
+
+        // Set user session
+        $userData = [
+            'nis' => $user['nis'],
+            'name' => $user['name']
+            // Add more data as needed
+        ];
+        session()->set($userData);
+
+        return redirect()->to('study/dashboard'); // Redirect to dashboard or desired page after successful login
     }
 
     public function edit($id)

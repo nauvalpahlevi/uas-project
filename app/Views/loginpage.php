@@ -18,6 +18,9 @@
                 <div class="card mt-5">
                     <div class="card-body">
                         <h2 class="text-center mb-4">Tracer Study</h2>
+                        <?php if (session()->has('error')) : ?>
+                            <div class="alert alert-danger"><?= session('error') ?></div>
+                        <?php endif; ?>
                         <form action="#" method="POST">
                             <div class="mb-3">
                                 <label for="nis" class="form-label">Nis</label>

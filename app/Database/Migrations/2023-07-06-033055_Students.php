@@ -65,11 +65,6 @@ class Students extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
-            'user' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
             'password' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
