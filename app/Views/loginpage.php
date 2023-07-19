@@ -17,24 +17,22 @@
             <div class="col-lg-6 col-md-8">
                 <div class="card mt-5">
                     <div class="card-body">
-                        <h2 class="text-center mb-4">Tracer Study</h2>
-                        <?php if (session()->has('error')) : ?>
-                            <div class="alert alert-danger"><?= session('error') ?></div>
+                        <h3 class="card-title text-center">Login</h3>
+
+                        <?php if (session()->getFlashdata('error')) : ?>
+                            <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
                         <?php endif; ?>
-                        <form action="#" method="POST">
-                            <div class="mb-3">
-                                <label for="nis" class="form-label">Nis</label>
+
+                        <form method="POST" action="<?= base_url('/study/auth') ?>">
+                            <div class="form-group">
+                                <label for="nis">NIS:</label>
                                 <input type="text" class="form-control" id="nis" name="nis" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
-                            <div class="d-grid">
-                                <!-- <button type="submit" class="btn btn-primary mb-2">Login</button> -->
-                                <a type="submit" class="btn btn-primary mb-2" href="<?php echo base_url("study/auth"); ?>">Login</a>
-                                <a type="submit" class="btn btn-secondary" href="<?php echo base_url("study/home"); ?>">Back</a>
-                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </form>
                     </div>
                 </div>

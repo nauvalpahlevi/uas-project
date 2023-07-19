@@ -17,8 +17,12 @@
             </button>
             <a href="/study/download-excel" class="btn btn-success">
                 <i class="fas fa-download mr-1"></i>
-                Download
+                Download Excel
             </a>
+            <a href="<?= base_url('export/pdf') ?>" class="btn btn-primary"> <i class="fas fa-download mr-1"></i> Download PDF</a>
+            <?php if (!empty($pdfFileName)) : ?>
+                <a href="<?= base_url('export/download/' . $pdfFileName) ?>" class="btn btn-success">Download PDF</a>
+            <?php endif; ?>
         </div>
         <br>
         <div class="card-body">
@@ -240,7 +244,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="prodi">Program Studi</label>
-                                    <input type="text" name="prodi" class="form-control" id="prodi" required>
+                                    <input type="text" name="prodi" class="form-control" id="prodi">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

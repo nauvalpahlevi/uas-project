@@ -25,6 +25,7 @@ class Paths
      */
     public string $systemDirectory = __DIR__ . '/../../vendor/codeigniter4/framework/system';
 
+
     /**
      * ---------------------------------------------------------------
      * APPLICATION FOLDER NAME
@@ -51,6 +52,8 @@ class Paths
      * system directories.
      */
     public string $writableDirectory = __DIR__ . '/../../writable';
+    public $writablePath = FCPATH . 'writable/';
+
 
     /**
      * ---------------------------------------------------------------

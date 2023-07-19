@@ -2,6 +2,9 @@
 <?= $this->section('content') ?>
 
 <div class="container-fluid">
+  <div class="card-header">
+    <h2>Dashboard</h2>
+  </div>
   <div class="row">
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-left-success shadow h-100 py-2">

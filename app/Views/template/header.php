@@ -16,7 +16,7 @@
 
     <?= $this->renderSection('styles') ?>
     <style>
-        /* @keyframes gradientAnimation {
+        @keyframes gradientAnimation {
             0% {
                 background-position: 0% 50%;
             }
@@ -34,30 +34,7 @@
             background: linear-gradient(-45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
             background-size: 400% 400%;
             animation: gradientAnimation 10s ease infinite;
-        } */
-
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
         }
-
-        .gradient-animation {
-            background: radial-gradient(circle at 50% -20.71%, #cbe7e1 0, #cae7e3 6.25%, #c9e7e6 12.5%, #c9e7e8 18.75%, #c9e7eb 25%, #c9e7ed 31.25%, #cae6ef 37.5%, #cbe6f1 43.75%, #cde5f2 50%, #cfe4f3 56.25%, #d1e4f4 62.5%, #d4e3f5 68.75%, #d7e2f5 75%, #dae1f5 81.25%, #dde0f4 87.5%, #e0e0f4 93.75%, #e3dff2 100%);
-            background-size: 400% 400%;
-            animation: gradientAnimation 10s ease infinite;
-            color: #000000;
-        }
-
-
 
         body {
             font-family: "Arial";
@@ -69,13 +46,17 @@
             background-color: #F7F7F7;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.1);
         }
+
+        .navbar {
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 
 <body class="gradient-animation">
     <div class="fluid-container">
-        <nav class="navbar navbar-expand-lg navbar-light" id="gradient2">
-            <a class="navbar-brand" href="#">Tracer Study </a>
+        <nav class="navbar navbar-expand-lg navbar-dark border-bottom" id="gradient2">
+            <a class="navbar-brand" href="<?= base_url("study/home"); ?>">Tracer Study </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -83,38 +64,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url("study/home"); ?>">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="<?= base_url("study/home"); ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url("study/informasi"); ?>">Informasi</a>
+                        <a class="nav-link" href="<?= base_url("study/informasi"); ?>">Informasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url("study/visi_misi"); ?>">Visi & Misi</a>
+                        <a class="nav-link" href="<?= base_url("study/visi_misi"); ?>">Visi & Misi</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li> -->
                 </ul>
-                <a class="btn btn-secondary my-2 my-sm-0" href="<?php echo base_url("study/login"); ?>">Login</a>
+                <a class="btn border text-light my-2 my-sm-0" href="<?php echo base_url("study/login"); ?>">Login</a>
             </div>
         </nav>
     </div>
     <div>
         <center>
-            <h3>SMK WIDYA NUSANTARA</h3>
+            <h3 class="text-light mt-5">SMK WIDYA NUSANTARA</h3>
         </center>
     </div>

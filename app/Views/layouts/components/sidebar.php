@@ -23,13 +23,12 @@
             <span>Data Alumni</span></a>
     </li>
     <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-    <!-- Nav Item - Tables -->
+    <!-- <hr class="sidebar-divider my-0">
     <li class="nav-item">
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-newspaper"></i>
             <span>Info BKK</span></a>
-    </li>
+    </li> -->
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
     <!-- Sidebar Toggler (Sidebar) -->
