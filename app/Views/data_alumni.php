@@ -40,10 +40,6 @@
                             <th>Email</th>
                             <th>Jurusan</th>
                             <th>Tahun Lulus</th>
-                            <th>Kesibukan</th>
-                            <th>Instansi</th>
-                            <th>Riwayat Pendidikan</th>
-                            <th>Program Studi</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -59,19 +55,16 @@
                                 <td><?= $subject['email']; ?></td>
                                 <td><?= $subject['jurusan']; ?></td>
                                 <td><?= $subject['tahun_lulus']; ?></td>
-                                <td><?= $subject['kesibukan']; ?></td>
-                                <td><?= $subject['instansi']; ?></td>
-                                <td><?= $subject['riwayat_pendidikan']; ?></td>
-                                <td><?= $subject['prodi']; ?></td>
                                 <td>
                                     <div class="flex-column">
-                                        <a type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#editModal<?= $subject['nis']; ?>">
-                                            <i class="fas fa-pen mr-1"></i>
-                                            Edit
+                                        <a class="text-primary" data-toggle="modal" data-target="#editModal<?= $subject['nis']; ?>">
+                                            <i class="fas fa-pen"></i>
                                         </a>
-                                        <a href="<?= base_url('study/delete/' . $subject['nis']) ?>" class="btn btn-danger btn-block" onclick="return confirm('Apa anda yakin untuk menghapus data ini?')">
-                                            <i class="fas fa-trash mr-1"></i>
-                                            Delete
+                                        <a class="text-danger" href="<?= base_url('study/delete/' . $subject['nis']) ?>" onclick="return confirm('Apa anda yakin untuk menghapus data ini?')">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                        <a class="text-success">
+                                            <i class="fas fa-eye"></i>
                                         </a>
                                     </div>
                                 </td>
@@ -122,22 +115,6 @@
                                                 <div class="form-group">
                                                     <label for="tahun_lulus">Tahun Lulus</label>
                                                     <input type="text" name="tahun_lulus" class="form-control" id="tahun_lulus" value="<?= $subject['tahun_lulus']; ?>" placeholder="Tahun lulus" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="kesibukan">Kesibukan</label>
-                                                    <input type="text" name="kesibukan" class="form-control" id="kesibukan" value="<?= $subject['kesibukan']; ?>" placeholder="Kesibukan">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="instansi">Instansi</label>
-                                                    <input type="text" name="instansi" class="form-control" id="instansi" value="<?= $subject['instansi']; ?>" placeholder="Instansi">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="riwayat_pendidikan">Riwayat Pendidikan</label>
-                                                    <input type="text" name="riwayat_pendidikan" class="form-control" id="riwayat_pendidikan" value="<?= $subject['riwayat_pendidikan']; ?>" placeholder="Riwayat Pendidikan" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="prodi">Program Studi</label>
-                                                    <input type="text" name="prodi" class="form-control" id="prodi" value="<?= $subject['prodi']; ?>" placeholder="Program Studi">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -195,57 +172,89 @@
                             <form action="/study/save" method="post">
                                 <?= csrf_field() ?>
                                 <div class="form-group">
-                                    <label for="nis">NIS</label>
+                                    <label for="nis">NIS<span class="text-danger">*</span></label>
                                     <input type="text" name="nis" class="form-control" id="nis" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Name</label>
+                                    <label for="name">Name<span class="text-danger">*</span></label>
                                     <input type="text" name="name" class="form-control" id="name" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="tempat_lahir">Tempat Lahir</label>
+                                    <label for="tempat_lahir">Tempat Lahir<span class="text-danger">*</span></label>
                                     <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="tanggal_lahir">Tanggal Lahir</label>
+                                    <label for="tanggal_lahir">Tanggal Lahir<span class="text-danger">*</span></label>
                                     <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="alamat">Alamat</label>
+                                    <label for="alamat">Alamat<span class="text-danger">*</span></label>
                                     <input type="text" name="alamat" class="form-control" id="alamat" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="telpon">Telpon</label>
-                                    <input type="text" name="telpon" class="form-control" id="telpon" required>
+                                    <input type="text" name="telpon" class="form-control" id="telpon">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control" id="email" required>
+                                    <input type="email" name="email" class="form-control" id="email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="jurusan">Jurusan</label>
+                                    <label for="jurusan">Jurusan<span class="text-danger">*</span></label>
                                     <input type="text" name="jurusan" class="form-control" id="jurusan" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="tahun_lulus">Tahun Lulus</label>
+                                    <label for="tahun_lulus">Tahun Lulus<span class="text-danger">*</span></label>
                                     <input type="text" name="tahun_lulus" class="form-control" id="tahun_lulus" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="kesibukan">Kesibukan</label>
-                                    <input type="text" name="kesibukan" class="form-control" id="kesibukan" required>
+                                <div class="bg-dark rounded-top">
+                                    <hr>
+                                    <center>
+                                        <h5 class="text-light">Pekerjaan</h5>
+                                    </center>
+                                    <hr>
                                 </div>
                                 <div class="form-group">
                                     <label for="instansi">Instansi</label>
-                                    <input type="text" name="instansi" class="form-control" id="instansi" required>
+                                    <input type="text" name="instansi" class="form-control" id="instansi">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tahun_masuk">Tahun Masuk</label>
+                                    <input type="text" name="tahun_masuk" class="form-control" id="tahun_masuk">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tahun_keluar">Tahun Keluar</label>
+                                    <input type="text" name="tahun_keluar" class="form-control" id="tahun_keluar">
+                                </div>
+                                <div class="bg-dark rounded-top">
+                                    <hr>
+                                    <center>
+                                        <h5 class="text-light">Kuliah</h5>
+                                    </center>
+                                    <hr>
                                 </div>
                                 <div class="form-group">
                                     <label for="riwayat_pendidikan">Riwayat Pendidikan</label>
-                                    <input type="text" name="riwayat_pendidikan" class="form-control" id="riwayat_pendidikan" required>
+                                    <input type="text" name="riwayat_pendidikan" class="form-control" id="riwayat_pendidikan">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama_kampus">Nama Kampus</label>
+                                    <input type="text" name="nama_kampus" class="form-control" id="nama_kampus">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tahun_masuk_kampus">Tahun Masuk Kuliah</label>
+                                    <input type="text" name="tahun_masuk_kampus" class="form-control" id="tahun_masuk_kampus">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tahun_lulus_kampus">Tahun Lulus Kuliah</label>
+                                    <input type="text" name="tahun_lulus_kampus" class="form-control" id="tahun_lulus_kampus">
                                 </div>
                                 <div class="form-group">
                                     <label for="prodi">Program Studi</label>
                                     <input type="text" name="prodi" class="form-control" id="prodi">
                                 </div>
+
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                     <button type="submit" class="btn btn-primary">Add Data</button>

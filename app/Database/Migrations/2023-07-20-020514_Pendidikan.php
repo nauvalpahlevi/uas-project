@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Students extends Migration
+class Pendidikan extends Migration
 {
     public function up()
     {
@@ -13,38 +13,25 @@ class Students extends Migration
                 'type' => 'INT',
                 'constraint' => 20,
             ],
-            'name' => [
+            'riwayat_pendidikan' => [
+                'type' => 'VARCHAR',
+                'constraint' => 30,
+            ],
+            'nama_kampus' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'tempat_lahir' => [
-                'type' => 'VARCHAR',
-                'constraint' => 50,
-            ],
-            'tanggal_lahir' => [
-                'type' => 'DATE',
-            ],
-            'alamat' => [
-                'type' => 'TEXT',
-                'null' => true,
-            ],
-            'telpon' => [
+            'tahun_masuk_kampus' => [
                 'type' => 'INT',
-                'constraint' => 14,
-                'null' => true,
+                'constraint' => 4,
             ],
-            'email' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'jurusan' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-            ],
-            'tahun_lulus' => [
+            'tahun_lulus_kampus' => [
                 'type' => 'INT',
-                'constraint' => 6,
+                'constraint' => 4,
+            ],
+            'prodi' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
             ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
@@ -57,12 +44,11 @@ class Students extends Migration
                 'default' => null,
             ],
         ]);
-        $this->forge->addPrimaryKey('nis');
-        $this->forge->createTable('students');
+        $this->forge->createTable('pendidikan');
     }
 
     public function down()
     {
-        $this->forge->dropTable('students');
+        $this->forge->dropTable('pendidikan');
     }
 }

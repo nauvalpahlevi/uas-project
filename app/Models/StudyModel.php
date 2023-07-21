@@ -13,7 +13,7 @@ class StudyModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nis', 'name', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'telpon', 'email', 'jurusan', 'tahun_lulus', 'kesibukan', 'instansi', 'riwayat_pendidikan', 'prodi'];
+    protected $allowedFields    = ['nis', 'name', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'telpon', 'email', 'jurusan', 'tahun_lulus'];
 
     // Dates
     protected $useTimestamps = true;
@@ -24,10 +24,5 @@ class StudyModel extends Model
     public function getCount()
     {
         return $this->countAllResults();
-    }
-
-    public function getCountByCategory($category)
-    {
-        return $this->where('kesibukan', $category)->countAllResults();
     }
 }

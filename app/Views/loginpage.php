@@ -18,11 +18,9 @@
                 <div class="card mt-5">
                     <div class="card-body">
                         <h3 class="card-title text-center">Login</h3>
-
                         <?php if (session()->getFlashdata('error')) : ?>
                             <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
                         <?php endif; ?>
-
                         <form method="POST" action="<?= base_url('/study/auth') ?>">
                             <div class="form-group">
                                 <label for="nis">NIS:</label>
@@ -31,6 +29,13 @@
                             <div class="form-group">
                                 <label for="password">Password:</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="role">Role:</label>
+                                <select class="form-control" id="role" name="role" required>
+                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </form>

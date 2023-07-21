@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\StudyModel;
+use App\Models\UserModel;
+use App\Models\PekerjaanModel;
+use App\Models\PendidikanModel;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -12,19 +15,23 @@ class Study extends BaseController
 {
 
     protected $study;
+    protected $user;
+    protected $pekerjaan;
+    protected $pendidikan;
+
 
     function __construct()
     {
         $this->study = new StudyModel();
+        $this->user = new UserModel();
+        $this->pekerjaan = new PekerjaanModel();
+        $this->pendidikan = new PendidikanModel();
     }
 
     public function dashboard()
     {
         $data['subjects'] = $this->study->findAll();
         $data['studentCount'] = $this->study->getCount();
-        $data['bekerja'] = $this->study->getCountByCategory('bekerja');
-        $data['wirausaha'] = $this->study->getCountByCategory('wirausaha');
-        $data['kuliah'] = $this->study->getCountByCategory('kuliah');
         $data['username'] = session()->get('user');
         return view('dashboard', $data);
     }
@@ -35,32 +42,76 @@ class Study extends BaseController
         return view('data_alumni', $data);
     }
 
-    // public function index()
-    // {
-    //     $data['username'] = session()->get('username');
-    //     $data['subjects'] = $this->study->findAll();
-    //     return view('dashboard', $data);
-    // }
-
     public function save()
     {
-        $this->study->insert([
-            'nis' => $this->request->getPost('nis'),
-            'name' => $this->request->getPost('name'),
-            'tempat_lahir' => $this->request->getPost('tempat_lahir'),
-            'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
-            'alamat' => $this->request->getPost('alamat'),
-            'telpon' => $this->request->getPost('telpon'),
-            'email' => $this->request->getPost('email'),
-            'jurusan' => $this->request->getPost('jurusan'),
-            'tahun_lulus' => $this->request->getPost('tahun_lulus'),
-            'kesibukan' => $this->request->getPost('kesibukan'),
-            'instansi' => $this->request->getPost('instansi'),
-            'riwayat_pendidikan' => $this->request->getPost('riwayat_pendidikan'),
-            'prodi' => $this->request->getPost('prodi')
-        ]);
-        return redirect()->to('/study/data_alumni')->with('success', 'Data Added Successfully');
+        $nis = $this->request->getPost('nis');
+        $name = $this->request->getPost('name');
+        $tempat_lahir = $this->request->getPost('tempat_lahir');
+        $tanggal_lahir = $this->request->getPost('tanggal_lahir');
+        $alamat = $this->request->getPost('alamat');
+        $telpon = $this->request->getPost('telpon');
+        $email = $this->request->getPost('email');
+        $jurusan = $this->request->getPost('jurusan');
+        $tahun_lulus = $this->request->getPost('tahun_lulus');
+
+        $instansi = $this->request->getPost('instansi');
+        $tahun_masuk = $this->request->getPost('tahun_masuk');
+        $tahun_keluar = $this->request->getPost('tahun_keluar');
+
+        $riwayat_pendidikan = $this->request->getPost('riwayat_pendidikan');
+        $nama_kampus = $this->request->getPost('nama_kampus');
+        $tahun_masuk_kampus = $this->request->getPost('tahun_masuk_kampus');
+        $tahun_lulus_kampus = $this->request->getPost('tahun_lulus_kampus');
+        $prodi = $this->request->getPost('prodi');
+
+        $dataStudent = [
+            'nis' => $nis,
+            'name' => $name,
+            'tempat_lahir' => $tempat_lahir,
+            'tanggal_lahir' => $tanggal_lahir,
+            'alamat' => $alamat,
+            'telpon' => $telpon,
+            'email' => $email,
+            'jurusan' => $jurusan,
+            'tahun_lulus' => $tahun_lulus,
+        ];
+
+        $pekerjaanData = [
+            'nis' => $nis,
+            'instansi' => $instansi,
+            'tahun_masuk' => $tahun_masuk,
+            'tahun_keluar' => $tahun_keluar,
+        ];
+
+        $pendidikanData = [
+            'nis' => $nis,
+            'riwayat_pendidikan' => $riwayat_pendidikan,
+            'nama_kampus' => $nama_kampus,
+            'tahun_masuk_kampus' => $tahun_masuk_kampus,
+            'tahun_lulus_kampus' => $tahun_lulus_kampus,
+            'prodi' => $prodi,
+        ];
+
+        try {
+            // Insert data into 'student' table
+            $this->study->insert($dataStudent);
+
+            // Insert data into 'user' table
+            $this->user->createUserWithDefaultPassword($nis);
+
+            // Insert data into 'pekerjaan' table
+            $this->pekerjaan->insert($pekerjaanData);
+
+            // Insert data into 'pendidikan' table
+            $this->pendidikan->insert($pendidikanData);
+
+            return redirect()->to('study/data_alumni')->with('success', 'Data has been successfully saved.');
+        } catch (\Exception $e) {
+
+            return redirect()->back()->withInput()->with('error', 'Failed to save data. Please try again.');
+        }
     }
+
 
     public function downloadExcel()
     {
@@ -191,26 +242,45 @@ class Study extends BaseController
 
     public function auth()
     {
+        // Ambil data yang diinputkan oleh pengguna
         $nis = $this->request->getPost('nis');
         $password = $this->request->getPost('password');
 
-        $user = $this->study->where('nis', $nis)->first();
+        // Cek apakah pengguna dengan NIS tersebut ada di database
+        $user = $this->user->where('username', $nis)->first();
 
         if ($user) {
-            if ($password == $user['password']) {
-                $sessionData = [
-                    'nis' => $user['nis'],
-                    'name' => $user['name'],
-                    'logged_in' => true
-                ];
+            // Jika pengguna dengan NIS tersebut ditemukan, verifikasi password
+            if (password_verify($password, $user['password'])) {
+                // Password cocok, atur sesi pengguna dan arahkan ke halaman dashboard atau halaman lain yang sesuai
+                $student = $this->study->where('nis', $nis)->first();
 
-                session()->set($sessionData);
+                if ($student) {
+                    // Simpan data pengguna dalam sesi
+                    $session = session();
+                    $userData = [
+                        'id' => $user['id'],
+                        'username' => $user['username'],
+                        'name' => $student['name'], // Simpan nama pengguna dalam sesi
+                        'role' => $user['role']
+                        // Jika ada data pengguna lainnya yang ingin disimpan dalam sesi, tambahkan di sini
+                    ];
+                    $session->set($userData);
 
-                return redirect()->to('/study/dashboard'); // Ganti "/dashboard" dengan URL halaman setelah berhasil login
+                    // Contoh pengalihan ke halaman dashboard
+                    return redirect()->to('study/dashboard');
+                } else {
+                    // Data student tidak ditemukan, tampilkan pesan error
+                    return redirect()->back()->with('error', 'Student data not found');
+                }
+            } else {
+                // Password salah, tampilkan pesan error
+                return redirect()->back()->with('error', 'Invalid password');
             }
+        } else {
+            // Pengguna dengan NIS tersebut tidak ditemukan, tampilkan pesan error
+            return redirect()->back()->with('error', 'Invalid NIS');
         }
-
-        return redirect()->back()->withInput()->with('error', 'Invalid login credentials');
     }
 
 
