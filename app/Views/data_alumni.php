@@ -207,6 +207,33 @@
                                     <label for="tahun_lulus">Tahun Lulus<span class="text-danger">*</span></label>
                                     <input type="text" name="tahun_lulus" class="form-control" id="tahun_lulus" required>
                                 </div>
+                                <div class="form-group">
+                                    <label>Kesibukan:</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status_kesibukan" id="bekerja" value="Bekerja">
+                                        <label class="form-check-label" for="bekerja">
+                                            Bekerja
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status_kesibukan" id="wirausaha" value="Wirausaha">
+                                        <label class="form-check-label" for="wirausaha">
+                                            Wirausaha
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status_kesibukan" id="kuliah" value="Kuliah">
+                                        <label class="form-check-label" for="kuliah">
+                                            Kuliah
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status_kesibukan" id="belum_bekerja" value="Belum Bekerja">
+                                        <label class="form-check-label" for="belum_bekerja">
+                                            Belum Bekerja
+                                        </label>
+                                    </div>
+                                </div>
                                 <div class="bg-dark rounded-top">
                                     <hr>
                                     <center>

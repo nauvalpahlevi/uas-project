@@ -32,12 +32,15 @@ class Study extends BaseController
     {
         $data['subjects'] = $this->study->findAll();
         $data['studentCount'] = $this->study->getCount();
+        $data['students'] = $this->study->findAll();
         $data['username'] = session()->get('user');
         return view('dashboard', $data);
     }
+
     public function data_alumni()
     {
         $data['subjects'] = $this->study->findAll();
+        $data['students'] = $this->study->findAll();
         $data['username'] = session()->get('user');
         return view('data_alumni', $data);
     }
@@ -53,6 +56,7 @@ class Study extends BaseController
         $email = $this->request->getPost('email');
         $jurusan = $this->request->getPost('jurusan');
         $tahun_lulus = $this->request->getPost('tahun_lulus');
+        $status_kesibukan = $this->request->getPost('status_kesibukan');
 
         $instansi = $this->request->getPost('instansi');
         $tahun_masuk = $this->request->getPost('tahun_masuk');
@@ -74,6 +78,7 @@ class Study extends BaseController
             'email' => $email,
             'jurusan' => $jurusan,
             'tahun_lulus' => $tahun_lulus,
+            'status_kesibukan' => $status_kesibukan,
         ];
 
         $pekerjaanData = [
@@ -116,6 +121,8 @@ class Study extends BaseController
     public function downloadExcel()
     {
         $subjects = $this->study->findAll();
+        $pendidikan = $this->pendidikan->findAll();
+        $pekerjaan = $this->pekerjaan->findAll();
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -128,12 +135,19 @@ class Study extends BaseController
         $sheet->setCellValue('G1', 'Email');
         $sheet->setCellValue('H1', 'Jurusan');
         $sheet->setCellValue('I1', 'Tahun Lulusan');
-        $sheet->setCellValue('J1', 'Kesibukan');
+        $sheet->setCellValue('J1', 'Status Kesibukan');
         $sheet->setCellValue('K1', 'Instansi');
-        $sheet->setCellValue('L1', 'Riwayat Pendidikan');
-        $sheet->setCellValue('M1', 'Program Studi');
+        $sheet->setCellValue('L1', 'Tahun Masuk Instansi');
+        $sheet->setCellValue('M1', 'Tahun Keluar Instansi');
+        $sheet->setCellValue('N1', 'Riwayat Pendidikan');
+        $sheet->setCellValue('O1', 'Nama Kampus');
+        $sheet->setCellValue('P1', 'Tahun Masuk Kampus');
+        $sheet->setCellValue('Q1', 'Tahun Lulus Kampus');
+        $sheet->setCellValue('R1', 'Program Studi');
 
         $row = 2;
+
+        // Menyatukan data dari ketiga tabel menjadi satu array untuk setiap barisnya
         foreach ($subjects as $subject) {
             $sheet->setCellValue('A' . $row, $subject['nis']);
             $sheet->setCellValue('B' . $row, $subject['name']);
@@ -144,10 +158,24 @@ class Study extends BaseController
             $sheet->setCellValue('G' . $row, $subject['email']);
             $sheet->setCellValue('H' . $row, $subject['jurusan']);
             $sheet->setCellValue('I' . $row, $subject['tahun_lulus']);
-            $sheet->setCellValue('J' . $row, $subject['kesibukan']);
-            $sheet->setCellValue('K' . $row, $subject['instansi']);
-            $sheet->setCellValue('L' . $row, $subject['riwayat_pendidikan']);
-            $sheet->setCellValue('M' . $row, $subject['prodi']);
+            $sheet->setCellValue('J' . $row, $subject['status_kesibukan']);
+
+            // Ambil data pekerjaan untuk baris yang sesuai
+            if (isset($pekerjaan[$row - 2])) {
+                $sheet->setCellValue('K' . $row, $pekerjaan[$row - 2]['instansi']);
+                $sheet->setCellValue('L' . $row, $pekerjaan[$row - 2]['tahun_masuk']);
+                $sheet->setCellValue('M' . $row, $pekerjaan[$row - 2]['tahun_keluar']);
+            }
+
+            // Ambil data pendidikan untuk baris yang sesuai
+            if (isset($pendidikan[$row - 2])) {
+                $sheet->setCellValue('N' . $row, $pendidikan[$row - 2]['riwayat_pendidikan']);
+                $sheet->setCellValue('O' . $row, $pendidikan[$row - 2]['nama_kampus']);
+                $sheet->setCellValue('P' . $row, $pendidikan[$row - 2]['tahun_masuk_kampus']);
+                $sheet->setCellValue('Q' . $row, $pendidikan[$row - 2]['tahun_lulus_kampus']);
+                $sheet->setCellValue('R' . $row, $pendidikan[$row - 2]['prodi']);
+            }
+
             $row++;
         }
 
@@ -170,6 +198,7 @@ class Study extends BaseController
         exit;
     }
 
+
     public function importExcel()
     {
         if ($this->request->getMethod() === 'post' && $this->request->getFile('excel_file')) {
@@ -183,29 +212,45 @@ class Study extends BaseController
                 $startRow = 2;
                 $endRow = count($rows);
 
-                $model = new StudyModel();
-
                 for ($rowIndex = $startRow; $rowIndex <= $endRow; $rowIndex++) {
                     $row = $rows[$rowIndex - 1];
 
-                    $data = [
-                        'nis'                   => $row[0],
-                        'name'                  => $row[1],
-                        'tempat_lahir'          => $row[2],
-                        'tanggal_lahir'         => $row[3],
-                        'alamat'                => $row[4],
-                        'telpon'                => $row[5],
-                        'email'                 => $row[6],
-                        'jurusan'               => $row[7],
-                        'tahun_lulus'           => $row[8],
-                        'kesibukan'             => $row[9],
-                        'instansi'              => $row[10],
-                        'riwayat_pendidikan'    => $row[11],
-                        'prodi'                 => $row[12],
+                    // Simpan data ke tabel studi
+                    $dataStudy = [
+                        'nis'               => $row[0],
+                        'name'              => $row[1],
+                        'tempat_lahir'      => $row[2],
+                        'tanggal_lahir'     => $row[3],
+                        'alamat'            => $row[4],
+                        'telpon'            => $row[5],
+                        'email'             => $row[6],
+                        'jurusan'           => $row[7],
+                        'tahun_lulus'       => $row[8],
+                        'status_kesibukan'  => $row[9],
                     ];
+                    $this->study->upsert($dataStudy, 'nis'); // Ganti 'nis' dengan kolom yang merupakan primary key
 
-                    $model->upsert($data, 'nis'); // Ganti 'nis' dengan kolom yang merupakan primary key
+                    // Simpan data ke tabel pekerjaan
+                    $dataPekerjaan = [
+                        'nis'           => $row[0],
+                        'instansi'      => $row[10],
+                        'tahun_masuk'   => $row[11],
+                        'tahun_keluar'  => $row[12],
+                    ];
+                    $this->pekerjaan->upsert($dataPekerjaan, 'nis'); // Ganti 'nis' dengan kolom yang merupakan primary key
 
+                    // Simpan data ke tabel pendidikan
+                    $dataPendidikan = [
+                        'nis'                   => $row[0],
+                        'riwayat_pendidikan'    => $row[13],
+                        'nama_kampus'           => $row[14],
+                        'tahun_masuk_kampus'    => $row[15],
+                        'tahun_lulus_kampus'    => $row[16],
+                        'prodi'                 => $row[17],
+                    ];
+                    $this->pendidikan->upsert($dataPendidikan, 'nis'); // Ganti 'nis' dengan kolom yang merupakan primary key
+
+                    $this->user->createUserWithDefaultPassword($row[0]);
                 }
 
                 return redirect()->to('/study/data_alumni')->with('success', 'Data Imported Successfully');
@@ -213,6 +258,7 @@ class Study extends BaseController
         }
         return redirect()->back()->with('error', 'Invalid file or format');
     }
+
 
     function home()
     {
@@ -257,31 +303,44 @@ class Study extends BaseController
 
                 if ($student) {
                     // Simpan data pengguna dalam sesi
-                    $session = session();
-                    $userData = [
-                        'id' => $user['id'],
-                        'username' => $user['username'],
-                        'name' => $student['name'], // Simpan nama pengguna dalam sesi
-                        'role' => $user['role']
-                        // Jika ada data pengguna lainnya yang ingin disimpan dalam sesi, tambahkan di sini
-                    ];
-                    $session->set($userData);
+                    $pendidikan = $this->pendidikan->where('nis', $nis)->first();
+                    if ($pendidikan) {
+                        $pekerjaan = $this->pekerjaan->where('nis', $nis)->first();
+                        if ($pekerjaan) {
+                            $session = session();
+                            $userData = [
+                                'id' => $user['id'],
+                                'username' => $user['username'],
+                                'role' => $user['role'],
+                                'name' => $student['name'],
+                                'tempat_lahir' => $student['tempat_lahir'],
+                                'tanggal_lahir' => $student['tanggal_lahir'],
+                                'alamat' => $student['alamat'],
+                                'telpon' => $student['telpon'],
+                                'email' => $student['email'],
+                                'jurusan' => $student['jurusan'],
+                                'tahun_lulus' => $student['tahun_lulus'],
+                            ];
+                            $session->set($userData);
 
-                    // Contoh pengalihan ke halaman dashboard
-                    return redirect()->to('study/dashboard');
+                            return redirect()->to('study/dashboard');
+                        } else {
+                            return redirect()->back()->with('error', 'Pekerjaan data not found');
+                        }
+                    } else {
+                        return redirect()->back()->with('error', 'Pendidikan data not found');
+                    }
                 } else {
-                    // Data student tidak ditemukan, tampilkan pesan error
                     return redirect()->back()->with('error', 'Student data not found');
                 }
             } else {
-                // Password salah, tampilkan pesan error
                 return redirect()->back()->with('error', 'Invalid password');
             }
         } else {
-            // Pengguna dengan NIS tersebut tidak ditemukan, tampilkan pesan error
-            return redirect()->back()->with('error', 'Invalid NIS');
+            return redirect()->back()->with('error', 'Invalid Username');
         }
     }
+
 
 
     public function edit($id)
@@ -304,7 +363,6 @@ class Study extends BaseController
         return redirect()->to('/study/data_alumni')->with('success', 'Data Updated Successfully');
     }
 
-
     public function logout()
     {
         session()->destroy();
@@ -315,5 +373,11 @@ class Study extends BaseController
     {
         $this->study->delete($id);
         return redirect()->to('/study/data_alumni');
+    }
+
+    function biodata()
+    {
+        $data['subjects'] = $this->study->findAll();
+        return view('biodata', $data);
     }
 }

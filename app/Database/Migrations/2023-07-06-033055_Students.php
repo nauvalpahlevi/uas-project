@@ -10,7 +10,7 @@ class Students extends Migration
     {
         $this->forge->addField([
             'nis' => [
-                'type' => 'INT',
+                'type' => 'VARCHAR',
                 'constraint' => 20,
             ],
             'name' => [
@@ -45,6 +45,10 @@ class Students extends Migration
             'tahun_lulus' => [
                 'type' => 'INT',
                 'constraint' => 6,
+            ],
+            'status_kesibukan' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
             ],
             'created_at' => [
                 'type' => 'TIMESTAMP',

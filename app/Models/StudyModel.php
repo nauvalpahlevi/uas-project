@@ -13,7 +13,7 @@ class StudyModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nis', 'name', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'telpon', 'email', 'jurusan', 'tahun_lulus'];
+    protected $allowedFields    = ['nis', 'name', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'telpon', 'email', 'jurusan', 'tahun_lulus', 'status_kesibukan'];
 
     // Dates
     protected $useTimestamps = true;

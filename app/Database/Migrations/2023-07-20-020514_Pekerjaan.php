@@ -10,7 +10,7 @@ class Pekerjaan extends Migration
     {
         $this->forge->addField([
             'nis' => [
-                'type' => 'INT',
+                'type' => 'VARCHAR',
                 'constraint' => 20,
             ],
             'instansi' => [
