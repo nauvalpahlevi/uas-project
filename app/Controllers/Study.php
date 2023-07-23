@@ -297,16 +297,27 @@ class Study extends BaseController
 
         if ($user) {
             // Jika pengguna dengan NIS tersebut ditemukan, verifikasi password
-            if (password_verify($password, $user['password'])) {
+            if ($password === $user['password'] or password_verify($password, $user['password'])) {
                 // Password cocok, atur sesi pengguna dan arahkan ke halaman dashboard atau halaman lain yang sesuai
                 $student = $this->study->where('nis', $nis)->first();
-
-                if ($student) {
+                if ($user['role'] === 'admin') {
                     // Simpan data pengguna dalam sesi
-                    $pendidikan = $this->pendidikan->where('nis', $nis)->first();
-                    if ($pendidikan) {
+                    $session = session();
+                    $userData = [
+                        'username' => $user['username'],
+                        'role' => $user['role'],
+                    ];
+                    $session->set($userData);
+
+                    return redirect()->to('study/dashboard');
+                } else if ($student) {
+                    if ($user['role'] === 'user') {
+                        // Retrieve the pendidikan and pekerjaan data for users
+                        $pendidikan = $this->pendidikan->where('nis', $nis)->first();
                         $pekerjaan = $this->pekerjaan->where('nis', $nis)->first();
-                        if ($pekerjaan) {
+
+                        if ($pendidikan && $pekerjaan) {
+                            // Simpan data pengguna dalam sesi
                             $session = session();
                             $userData = [
                                 'id' => $user['id'],
@@ -320,15 +331,22 @@ class Study extends BaseController
                                 'email' => $student['email'],
                                 'jurusan' => $student['jurusan'],
                                 'tahun_lulus' => $student['tahun_lulus'],
+                                'riwayat_pendidikan' => $pendidikan['riwayat_pendidikan'],
+                                'nama_kampus' => $pendidikan['nama_kampus'],
+                                'tahun_masuk_kampus' => $pendidikan['tahun_masuk_kampus'],
+                                'tahun_lulus_kampus' => $pendidikan['tahun_lulus_kampus'],
+                                'instansi' => $pekerjaan['instansi'],
+                                'tahun_masuk' => $pekerjaan['tahun_masuk'],
+                                'tahun_keluar' => $pekerjaan['tahun_keluar'],
                             ];
                             $session->set($userData);
 
                             return redirect()->to('study/dashboard');
                         } else {
-                            return redirect()->back()->with('error', 'Pekerjaan data not found');
+                            return redirect()->back()->with('error', 'Pendidikan data or Pekerjaan data not found');
                         }
                     } else {
-                        return redirect()->back()->with('error', 'Pendidikan data not found');
+                        // Handle other user roles here, if needed
                     }
                 } else {
                     return redirect()->back()->with('error', 'Student data not found');
@@ -340,6 +358,7 @@ class Study extends BaseController
             return redirect()->back()->with('error', 'Invalid Username');
         }
     }
+
 
 
 

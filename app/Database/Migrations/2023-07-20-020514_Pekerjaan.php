@@ -20,10 +20,13 @@ class Pekerjaan extends Migration
             'tahun_masuk' => [
                 'type' => 'INT',
                 'constraint' => 4,
+                'null' => true,
             ],
             'tahun_keluar' => [
                 'type' => 'INT',
                 'constraint' => 4,
+                'null' => true,
+
             ],
             'created_at' => [
                 'type' => 'TIMESTAMP',

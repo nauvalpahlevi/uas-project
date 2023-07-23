@@ -24,10 +24,12 @@ class Pendidikan extends Migration
             'tahun_masuk_kampus' => [
                 'type' => 'INT',
                 'constraint' => 4,
+                'null' => true,
             ],
             'tahun_lulus_kampus' => [
                 'type' => 'INT',
                 'constraint' => 4,
+                'null' => true,
             ],
             'prodi' => [
                 'type' => 'VARCHAR',

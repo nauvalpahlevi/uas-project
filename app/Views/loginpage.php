@@ -30,13 +30,13 @@
                                 <label for="password">Password:</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="role">Role:</label>
                                 <select class="form-control" id="role" name="role" required>
                                     <option value="user">User</option>
                                     <option value="admin">Admin</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </form>
                     </div>

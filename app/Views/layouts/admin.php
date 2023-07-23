@@ -84,18 +84,18 @@
         }
     }
 
-    // foreach ($subjects as $row) {
-    //     // $kategori = $row['kesibukan'];
-    //     $kategori = 'test';
+    foreach ($subjects as $row) {
+        $kategori = $row['status_kesibukan'];
+        // $kategori = 'test';
 
 
-    //     // Tambahkan jumlah data pada kategori yang sesuai
-    //     if (isset($aktifitas[$kategori])) {
-    //         $aktifitas[$kategori]++;
-    //     } else {
-    //         $aktifitas[$kategori] = 1;
-    //     }
-    // }
+        // Tambahkan jumlah data pada kategori yang sesuai
+        if (isset($aktifitas[$kategori])) {
+            $aktifitas[$kategori]++;
+        } else {
+            $aktifitas[$kategori] = 1;
+        }
+    }
     ?>
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('assets/vendor/jquery/jquery.min.js') ?>"></script>
