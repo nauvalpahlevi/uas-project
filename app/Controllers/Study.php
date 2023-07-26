@@ -30,11 +30,28 @@ class Study extends BaseController
 
     public function dashboard()
     {
+        $bekerjaCount = $this->countByStatusKesibukan('Bekerja');
+        $wirausahaCount = $this->countByStatusKesibukan('Wirausaha');
+        $kuliahCount = $this->countByStatusKesibukan('Kuliah');
+        $belumBekerjaCount = $this->countByStatusKesibukan('Belum Bekerja');
+
         $data['subjects'] = $this->study->findAll();
         $data['studentCount'] = $this->study->getCount();
         $data['students'] = $this->study->findAll();
         $data['username'] = session()->get('user');
+
+        // Menambahkan variabel-variabel ke dalam array data
+        $data['bekerjaCount'] = $bekerjaCount;
+        $data['wirausahaCount'] = $wirausahaCount;
+        $data['kuliahCount'] = $kuliahCount;
+        $data['belumBekerjaCount'] = $belumBekerjaCount;
+
         return view('dashboard', $data);
+    }
+
+    public function countByStatusKesibukan($status)
+    {
+        return $this->study->where('status_kesibukan', $status)->countAllResults();
     }
 
     public function data_alumni()
