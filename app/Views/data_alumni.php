@@ -88,6 +88,9 @@
                                             <a class="text-danger" href="<?= base_url('study/delete/' . $subject['nis']) ?>" onclick="return confirm('Apa anda yakin untuk menghapus data ini?')">
                                                 <i class="fas fa-trash"></i>
                                             </a>
+                                            <a class="text-success" href="<?= base_url('study/view/' . $subject['nis']) ?>">
+                                                <i class=" fas fa-eye"></i>
+                                            </a>
                                         <?php endif; ?>
                                         <?php if (session()->role === 'user') : ?>
                                             <a class="text-primary" data-toggle="modal" data-target="#editModal<?= $subject['nis']; ?>" hidden>
@@ -95,6 +98,9 @@
                                             </a>
                                             <a class="text-danger" href="<?= base_url('study/delete/' . $subject['nis']) ?>" onclick="return confirm('Apa anda yakin untuk menghapus data ini?')" hidden>
                                                 <i class="fas fa-trash"></i>
+                                            </a>
+                                            <a class="text-success" href="<?= base_url('study/view/' . $subject['nis']) ?>">
+                                                <i class=" fas fa-eye"></i>
                                             </a>
                                         <?php endif; ?>
                                     </div>

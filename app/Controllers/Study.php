@@ -398,4 +398,19 @@ class Study extends BaseController
         $data['pekerjaan'] = $this->pekerjaan->where('nis', $username)->findAll();
         return view('biodata', $data);
     }
+
+    function view($nis)
+    {
+        $subjects = $this->study->find($nis);
+        if ($subjects) {
+            $data['subjects'] = $subjects;
+            $data['pendidikan'] = $this->pendidikan->where('nis', $nis)->findAll();
+            $data['pekerjaan'] = $this->pekerjaan->where('nis', $nis)->findAll();
+
+            return view('view_dataalumni', $data);
+        } else {
+            // Jika data subjek tidak ditemukan, lakukan redirect atau tampilkan pesan error sesuai kebutuhan
+            return redirect()->to('/study/data_alumni')->with('error', 'Data not found');
+        }
+    }
 }
