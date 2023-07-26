@@ -198,7 +198,6 @@ class Study extends BaseController
         exit;
     }
 
-
     public function importExcel()
     {
         if ($this->request->getMethod() === 'post' && $this->request->getFile('excel_file')) {
@@ -320,7 +319,6 @@ class Study extends BaseController
                             // Simpan data pengguna dalam sesi
                             $session = session();
                             $userData = [
-                                'id' => $user['id'],
                                 'username' => $user['username'],
                                 'role' => $user['role'],
                                 'name' => $student['name'],
@@ -335,6 +333,7 @@ class Study extends BaseController
                                 'nama_kampus' => $pendidikan['nama_kampus'],
                                 'tahun_masuk_kampus' => $pendidikan['tahun_masuk_kampus'],
                                 'tahun_lulus_kampus' => $pendidikan['tahun_lulus_kampus'],
+                                'prodi' => $pendidikan['prodi'],
                                 'instansi' => $pekerjaan['instansi'],
                                 'tahun_masuk' => $pekerjaan['tahun_masuk'],
                                 'tahun_keluar' => $pekerjaan['tahun_keluar'],
@@ -358,9 +357,6 @@ class Study extends BaseController
             return redirect()->back()->with('error', 'Invalid Username');
         }
     }
-
-
-
 
     public function edit($id)
     {
@@ -397,6 +393,9 @@ class Study extends BaseController
     function biodata()
     {
         $data['subjects'] = $this->study->findAll();
+        $username = session()->get('username');
+        $data['pendidikan'] = $this->pendidikan->where('nis', $username)->findAll();
+        $data['pekerjaan'] = $this->pekerjaan->where('nis', $username)->findAll();
         return view('biodata', $data);
     }
 }

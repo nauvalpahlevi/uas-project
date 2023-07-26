@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\PekerjaanModel;
+use App\Models\PendidikanModel;
 use Dompdf\Dompdf;
 use App\Models\StudyModel;
 
@@ -9,14 +11,20 @@ class ExportController extends BaseController
 {
 
     protected $study;
+    protected $pendidikan;
+    protected $pekerjaan;
 
     function __construct()
     {
         $this->study = new StudyModel();
+        $this->pendidikan = new PendidikanModel();
+        $this->pekerjaan = new PekerjaanModel();
     }
     public function exportToPDF()
     {
-        $data = $this->study->findAll();
+        $subjects = $this->study->findAll();
+        $pendidikan = $this->pendidikan->findAll();
+        $pekerjaan = $this->pekerjaan->findAll();
 
         // Ambil konten HTML yang ingin di-export ke PDF
         $html = '<html>
@@ -46,15 +54,15 @@ class ExportController extends BaseController
                     <th>Jurusan</th>
                     <th>Tahun Lulus</th>
                     <th>Kesibukan</th>
-                    <th>Instansi</th>
                     <th>Riwayat Pendidikan</th>
-                    <th>Program Studi</th>
+                    <th>Nama Kampus</th>
+                    <th>Tempat Bekerja</th>
                     </tr>
                 </thead>
                 <tbody>';
 
 
-        foreach ($data as $row) {
+        foreach ($subjects as $row) {
             $html .= '<tr>';
             $html .= '<td>' . $row['nis'] . '</td>';
             $html .= '<td>' . $row['name'] . '</td>';
@@ -64,10 +72,38 @@ class ExportController extends BaseController
             $html .= '<td>' . $row['telpon'] . '</td>';
             $html .= '<td>' . $row['jurusan'] . '</td>';
             $html .= '<td>' . $row['tahun_lulus'] . '</td>';
-            $html .= '<td>' . $row['kesibukan'] . '</td>';
-            $html .= '<td>' . $row['instansi'] . '</td>';
-            $html .= '<td>' . $row['riwayat_pendidikan'] . '</td>';
-            $html .= '<td>' . $row['prodi'] . '</td>';
+            $html .= '<td>' . $row['status_kesibukan'] . '</td>';
+
+            // Cari data pendidikan yang sesuai dengan NIS pada data subjects
+            $pendidikanData = array_filter($pendidikan, function ($item) use ($row) {
+                return $item['nis'] == $row['nis'];
+            });
+
+            // Cetak data pendidikan
+            if (count($pendidikanData) > 0) {
+                $pendidikanItem = array_shift($pendidikanData);
+                $html .= '<td>' . $pendidikanItem['riwayat_pendidikan'] . '</td>';
+                $html .= '<td>' . $pendidikanItem['prodi'] . '</td>';
+            } else {
+                // Jika tidak ada data pendidikan, cetak kolom kosong
+                $html .= '<td>-</td>';
+                $html .= '<td>-</td>';
+            }
+
+            // Cari data pekerjaan yang sesuai dengan NIS pada data subjects
+            $pekerjaanData = array_filter($pekerjaan, function ($item) use ($row) {
+                return $item['nis'] == $row['nis'];
+            });
+
+            // Cetak data pekerjaan
+            if (count($pekerjaanData) > 0) {
+                $pekerjaanItem = array_shift($pekerjaanData);
+                $html .= '<td>' . $pekerjaanItem['instansi'] . '</td>';
+            } else {
+                // Jika tidak ada data pekerjaan, cetak kolom kosong
+                $html .= '<td>-</td>';
+            }
+
             $html .= '</tr>';
         }
 

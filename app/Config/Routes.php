@@ -36,6 +36,11 @@ $routes->get('study/edit/(:segment)', 'Study::edit/$1');
 $routes->post('study/save', 'Study::save');
 $routes->get('export/pdf', 'ExportController::exportToPDF');
 $routes->get('export/download/(:any)', 'ExportController::downloadPDF/$1');
+// $routes->post('/pekerjaan/addPekerjaan', 'PekerjaanController::addPekerjaan');
+
+// $routes->post('/pendidikan/addPendidikan', 'Pendidikan::addPendidikan');
+// $routes->get('/pendidikan/editPendidikan/(:any)', 'Pendidikan::editPendidikan/$1');
+
 
 
 

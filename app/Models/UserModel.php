@@ -54,6 +54,6 @@ class UserModel extends Model
             'role' => 'user' // Role default bisa disesuaikan
         ];
 
-        return $this->replace($data);
+        return $this->upsert($data);
     }
 }

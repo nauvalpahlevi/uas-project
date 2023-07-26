@@ -9,6 +9,12 @@ class Pendidikan extends Migration
     public function up()
     {
         $this->forge->addField([
+            'id' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+                'auto_increment' => true,
+            ],
             'nis' => [
                 'type' => 'VARCHAR',
                 'constraint' => 20,
@@ -46,6 +52,7 @@ class Pendidikan extends Migration
                 'default' => null,
             ],
         ]);
+        $this->forge->addPrimaryKey('id');
         $this->forge->createTable('pendidikan');
     }
 

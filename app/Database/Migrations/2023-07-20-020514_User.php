@@ -9,12 +9,6 @@ class User extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
-                'auto_increment' => true,
-            ],
             'username' => [
                 'type' => 'VARCHAR',
                 'constraint' => 20,
@@ -38,8 +32,16 @@ class User extends Migration
                 'default' => null,
             ],
         ]);
-        $this->forge->addPrimaryKey('id');
+        $this->forge->addPrimaryKey('nis');
         $this->forge->createTable('user');
+
+        $data = [
+            'username' => 'admin',
+            'password' => password_hash('admin', PASSWORD_DEFAULT),
+            'role' => 'admin',
+        ];
+
+        $this->db->table('user')->insert($data);
     }
 
     public function down()

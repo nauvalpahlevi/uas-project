@@ -29,7 +29,7 @@ class Students extends Migration
                 'null' => true,
             ],
             'telpon' => [
-                'type' => 'INT',
+                'type' => 'VARCHAR',
                 'constraint' => 14,
                 'null' => true,
             ],

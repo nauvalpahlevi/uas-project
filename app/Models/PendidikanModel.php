@@ -8,12 +8,12 @@ class PendidikanModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'pendidikan';
-    protected $primaryKey       = 'nis';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nis', 'riwayat_pendidikan', 'nama_kampus', 'tahun_masuk_kampus', 'tahun_lulus_kampus', 'prodi'];
+    protected $allowedFields    = ['id', 'nis', 'riwayat_pendidikan', 'nama_kampus', 'tahun_masuk_kampus', 'tahun_lulus_kampus', 'prodi'];
 
     // Dates
     protected $useTimestamps = false;

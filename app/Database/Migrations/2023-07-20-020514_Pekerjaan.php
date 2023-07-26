@@ -9,6 +9,12 @@ class Pekerjaan extends Migration
     public function up()
     {
         $this->forge->addField([
+            'id' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+                'auto_increment' => true,
+            ],
             'nis' => [
                 'type' => 'VARCHAR',
                 'constraint' => 20,
@@ -26,7 +32,6 @@ class Pekerjaan extends Migration
                 'type' => 'INT',
                 'constraint' => 4,
                 'null' => true,
-
             ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
@@ -39,6 +44,7 @@ class Pekerjaan extends Migration
                 'default' => null,
             ],
         ]);
+        $this->forge->addPrimaryKey('id');
         $this->forge->createTable('pekerjaan');
     }
 

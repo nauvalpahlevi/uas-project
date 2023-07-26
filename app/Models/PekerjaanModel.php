@@ -8,12 +8,12 @@ class PekerjaanModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'pekerjaan';
-    protected $primaryKey       = 'nis';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nis', 'instansi', 'tahun_masuk', 'tahun_keluar'];
+    protected $allowedFields    = ['id', 'nis', 'instansi', 'tahun_masuk', 'tahun_keluar'];
 
     // Dates
     protected $useTimestamps = false;
